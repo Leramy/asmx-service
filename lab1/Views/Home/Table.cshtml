@@ -1,0 +1,58 @@
+﻿@model List<MyService.HockeyPlayer>
+@{
+    //ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <div class="text-center">
+        <h1 class="display-4">Lab_1 ASP.NET</h1>
+    </div>
+</head>
+<body>
+    <div class="text-center">
+        <h3>HockeyPlayers</h3>
+        <table>
+            <tr>
+                <td>playerID</td>
+                <td>jersey</td>
+                <td>fName</td>
+                <td>sName</td>
+                <td>position</td>
+                <td>brthday</td>
+                <td>weight</td>
+                <td>height</td>
+                <td>birthcity</td>
+                <td>birthstate</td>
+                <td>photo</td>
+            </tr>
+            @{
+                foreach (var player in Model)
+                {
+                    <tr>
+                        <td>@player.playerid</td>
+                        <td>@player.jersey</td>
+                        <td>@player.fname</td>
+                        <td>@player.sname</td>
+                        <td>@player.position</td>
+                        <td>@player.birthday.ToString("dd-MM-yyyy")</td>
+                        <td>@player.weight</td>
+                        <td>@player.height</td>
+                        <td>@player.birthcity</td>
+                        <td>@player.birthstate</td>
+                        <td>
+                            <a href="~/Home/Photo/@player.playerid" target="_blank">Фото</a>
+                        
+                        @*<img styles='width:80px; height:60px;' src='@Url.Action("GetImage", "Home", new { id = player.playerid.ToString() })'/>*@
+                        </td>
+  
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>

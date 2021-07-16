@@ -1,0 +1,17 @@
+﻿@model lab1.Models.Photo
+@{
+    //ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <div class="text-center">
+        <h1 class="display-4">@Model.Name.ToString()</h1>
+    </div>
+</head>
+<body>
+    <img styles='width:80px; height:60px;' src='@Url.Action("GetImage", "Home", new { id = Model.Name.ToString() })' />
+    </div>
+</body>

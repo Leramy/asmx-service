@@ -1,0 +1,102 @@
+﻿@model lab1.Models.HockeyPlayerParams
+@{
+    //ViewData["Title"] = "Rosters Parameters";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <div class="text-center">
+        <h1 class="display-4">Lab_1 ASP.NET</h1>
+    </div>
+</head>
+<body>
+    <div class="text-center">
+        <h3>Here you can choose the critters with specified birthdays, playing positions, weight and height.</h3>
+        <form asp-action="Index" method="post">
+            <table class="table table-borderless table-striped">
+                <tr>
+                    <td>
+                        <label class="control-label">Player position:</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("position", Model.positions as SelectList,
+                                            htmlAttributes: new { @class = "form-control"})
+                    </td>
+                    @*<td>
+                        <label asp-for="position">Player position:</label>
+                    </td>
+                    <td>
+                        <input class="form-control" asp-for="position" />
+                    </td>*@
+                </tr>
+                <tr>
+                    <td colspan="2">Select birthdays...</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="birthdayFrom">from...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" type="date" asp-for="birthdayFrom" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="birthdayTo">to...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" type="date" asp-for="birthdayTo" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Select weight...</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="weightFrom">from...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" asp-for="weightFrom" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="weightTo">to...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" asp-for="weightTo" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Select height...</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="heightFrom">from...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" asp-for="heightFrom" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="heightTo">to...</label>
+                    </td>
+                    <td>
+                        <input class="form-control" asp-for="heightTo" />
+                    </td>
+                </tr>
+
+
+            </table>
+            <div class="text-center">
+                <button type="submit" formtarget="_blank">Set parameters </button>
+            </div>
+            <a class="nav-link" asp-action="Table">Show Now!</a>
+        </form>
+    </div>
+</body>
+</html>
